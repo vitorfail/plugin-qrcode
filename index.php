@@ -12,8 +12,7 @@
 <body>
     <session class="qr_container">
         <p style="font-size:25px; color:white; font-weight:600;">Generate QRCode<p>
-        <div id="confete">
-        </div>
+        <div id="confete" class="firework"></div>        
         <div class="qr_menu">
             <div class="qr_code_display">
                 <div id="caixas_rotatorias" class="caixas_rotatorias">
@@ -30,24 +29,7 @@
         <p class="powered"><strong>powered</strong> by Vitor Manoel</p>
     </session>
     <script>
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        function getRandomNumber() {
-            return Math.floor(Math.random() * 401) - 200;        
-        }
-        function gerar_negativo(min, max){
-            return Math.floor(Math.random() * (Math.abs(min) - Math.abs(max) + 1)) + max;
-        }
-        var items= [1,2,3,4,5,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9,6,7,8,8,9,9]
-        var spans = document.getElementById("confete")
-        const htmlist= items.map(item => {
-            var random = getRandomInt(10,55)
-            var teste = -12||+13
-            var teste2 = gerar_negativo(-10,-100) || getRandomInt(1,100)
-            return `<span style="--g:${teste2};--i:${random}; transform:translateX(${getRandomNumber()}px) rotate(${random-4}deg) rotate(${getRandomNumber()}deg) rotate(${random-8}deg);"></span>`
-        })
-        spans.innerHTML = htmlist.join('')
+        
         document.addEventListener('DOMContentLoaded', function() {
             var img = document.getElementById('qrcode');
             img.src = "qr.png"
@@ -74,12 +56,13 @@
                     img.src = 'generate.php?conteudo=' + encodeURIComponent(conteudo);
                     loading.style.display= "none"
                     img.style.display = "flex"
-                    setTimeout(() => {
+                    img.onload= function() {
                         confete.style.display="flex"
                         setTimeout(() => {
                             confete.style.display="none"   
                         }, 700);
-                    }, 500);
+
+                    };
                 }, 1000);
 
             }
