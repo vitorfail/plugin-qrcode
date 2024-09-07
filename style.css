@@ -55,7 +55,7 @@
     display: none;
 }
 @keyframes firework {
-    0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+    0% {  width: var(--initialSize); opacity: 1; }
     50% { width: 0.5vmin; opacity: 1; }
     100% { width: var(--finalSize); opacity: 0; }
   }
@@ -73,19 +73,19 @@
     --initialSize: 1.5vmin;
     --finalSize: 45vmin;
     --particleSize: 3.2vmin;
-    --color1: yellow;
-    --color2: khaki;
+    --color1: rgb(0, 119, 255);
+    --color2: rgb(147, 140, 240);
     --color3: white;
-    --color4: lime;
-    --color5: gold;
+    --color4: rgb(76, 0, 255);
+    --color5: rgb(0, 217, 255);
     --color6: mediumseagreen;
     --y: -40vmin;
     --x: -60%;
     --initialY: 90vmin;
     content: "";
-    animation: firework 2s infinite;
+    animation: firework 1s linear;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, var(--y));
     width: var(--initialSize);

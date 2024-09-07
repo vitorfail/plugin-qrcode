@@ -60,7 +60,7 @@
                         confete.style.display="flex"
                         setTimeout(() => {
                             confete.style.display="none"   
-                        }, 700);
+                        }, 2000);
 
                     };
                 }, 1000);
